@@ -6,5 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <script>
+      const test = (x, callback) => {
+        return callback(x);
+      };
+
+      const test2 = (number) => {
+        number++;
+        console.log(number);
+        return number;
+      };
+
+      const test3 = (number) => {
+        number--;
+        console.log(number);
+        return number;
+      };
+
+      const result = test(5, test3);
+    </script>
+  </body>
 </html>
