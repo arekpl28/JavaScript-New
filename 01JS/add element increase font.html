@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0 10%;
+      }
+
+      button {
+        display: block;
+        margin: 30px auto;
+        padding: 5px 20px;
+        font-size: 20px;
+        background-color: #000;
+        color: white;
+        border: 2px solid black;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: 0.2s;
+      }
+      button:hover {
+        background-color: #fff;
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Click</button>
+
+    <script>
+      const btn = document.querySelector("button");
+      const ul = document.createElement("ul");
+
+      let couter = 0;
+      let font = 10;
+
+      btn.addEventListener("click", () => {
+        document.body.appendChild(ul);
+        for (let i = 0 + couter; i < 10 + couter; i++) {
+          const li = document.createElement("li");
+          li.textContent = `Element nr: ${i}`;
+          li.style.fontSize = `${font}px`;
+          ul.appendChild(li);
+          font++;
+        }
+        couter += 10;
+      });
+    </script>
+  </body>
+</html>
