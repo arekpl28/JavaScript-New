@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paper, Stone, Scissors</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Game "Paper, Stone, Scissors"</h1>
+    <div class="select">
+      <h2>Please choose!</h2>
+      <img id="paper" src="img/paper.jpg" alt="paper" />
+      <img id="stone" src="img/stone.jpg" alt="stone" />
+      <img id="scissors" src="img/scissors.jpg" alt="scissors" />
+    </div>
+    <button class="start">Let's play</button>
+    <div class="wrap">
+      <div class="panel-left">
+        <h3>Game score</h3>
+        <p>Your choice: <span id="your-choice"></span></p>
+        <p>Computer choice: <span id="computer-choice"></span></p>
+        <p>The winner of the game: <span id="who-win"></span></p>
+      </div>
+      <div class="panel-right">
+        <h3>Current results</h3>
+        <p>Number of games: <span id="number-of-games"></span></p>
+        <p>Wins: <span id="wins"></span></p>
+        <p>Losers: <span id="defeat"></span></p>
+        <p>Draws: <span id="draw"></span></p>
+      </div>
+    </div>
+  </body>
+</html>
