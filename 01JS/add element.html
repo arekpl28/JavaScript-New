@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0 10%;
+      }
+
+      button {
+        display: block;
+        margin: 30px auto;
+        padding: 5px 20px;
+        font-size: 20px;
+        background-color: #000;
+        color: white;
+        border: 2px solid black;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: 0.2s;
+      }
+
+      button:hover {
+        background-color: #fff;
+        color: #000;
+      }
+
+      div {
+        float: left;
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        font-size: 30px;
+        line-height: 50px;
+      }
+
+      div.circle {
+        border: 2px solid black;
+        border-radius: 50%;
+        color: black;
+        line-height: 48px;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Add element</button>
+    <script>
+      const btnAdd = document.querySelector("button");
+
+      let couter = 1;
+
+      addElement = () => {
+        const tempElement = document.createElement("div");
+        if (couter % 5 === 0) {
+          tempElement.classList.add("circle");
+        }
+        tempElement.textContent = couter;
+        document.body.appendChild(tempElement);
+        couter++;
+      };
+
+      btnAdd.addEventListener("click", addElement);
+    </script>
+  </body>
+</html>
