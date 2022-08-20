@@ -92,6 +92,8 @@ div.wrap p {
 
 div.wrap p span {
   font-weight: bold;
+  text-transform: uppercase;
+  color: green;
 }
 
 div.wrap p span#who-win {
