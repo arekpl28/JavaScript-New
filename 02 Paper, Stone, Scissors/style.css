@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  width: 50%;
+  margin: 5vh auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  padding: 0 20px 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+div.select {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+div.select h2 {
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+div.select img {
+  width: 30%;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+div.select img:hover {
+  transform: scale(1.1);
+}
+
+div.select img.active {
+  transform: scale(1.1);
+  border: 2px solid red;
+}
+
+button.start {
+  font-size: 2rem;
+  padding: 10px 30px;
+  margin-bottom: 30px;
+  background-color: #fff;
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button.start:hover {
+  background-color: #000;
+  color: white;
+}
+
+div.wrap {
+  display: flex;
+}
+
+div.wrap div {
+  width: 50%;
+  flex-grow: 1;
+  text-align: left;
+  padding: 20px;
+  background-color: #ddd;
+}
+
+div.wrap h3 {
+  font-size: 2rem;
+  padding: 20px 0;
+}
+
+div.wrap p {
+  text-align: left;
+  font-size: 1.6rem;
+  padding: 5px 0;
+}
+
+div.wrap p span {
+  font-weight: bold;
+}
+
+div.wrap p span#who-win {
+  display: block;
+  text-align: center;
+  padding-top: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
