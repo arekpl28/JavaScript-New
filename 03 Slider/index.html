@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      header {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      header img {
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.6;
+      }
+
+      header h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4rem;
+        text-transform: uppercase;
+      }
+
+      header div.dots {
+        position: absolute;
+        display: flex;
+        width: 150px;
+        justify-content: space-between;
+        bottom: 10vh;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      header div.dots span {
+        width: 20px;
+        height: 20px;
+        background-color: #000;
+        border-radius: 50%;
+        box-shadow: 0 0 0 5px white;
+        cursor: pointer;
+      }
+
+      header div.dots span.active {
+        box-shadow: 0 0 0 5px white, 0 0 3px 10px red;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img class="slider" src="img1.jpg" alt="" />
+      <h1>First Text</h1>
+      <div class="dots">
+        <span id="one" class="active"></span>
+        <span id="two"></span>
+        <span id="three"></span>
+      </div>
+    </header>
+    <script>
+      const slideList = [
+        {
+          img: "img1.jpg",
+          text: "First text",
+        },
+        {
+          img: "img2.jpg",
+          text: "Second text",
+        },
+        {
+          img: "img3.jpg",
+          text: "Third text",
+        },
+      ];
+
+      const image = document.querySelector(".slider");
+      const h1 = document.querySelector("h1");
+      const dots = [...document.querySelectorAll("div span")];
+
+      let active = 0;
+      const time = 5000;
+
+      const changeDot = () => {
+        const activeDot = dots.findIndex((dot) =>
+          dot.classList.contains("active")
+        );
+        dots[activeDot].classList.remove("active");
+        dots[active].classList.add("active");
+      };
+
+      const changeSlide = () => {
+        active++;
+        if (active == slideList.length) {
+          active = 0;
+        }
+        image.src = slideList[active].img;
+        h1.textContent = slideList[active].text;
+        changeDot();
+      };
+
+      let indexInterval = setInterval(changeSlide, time);
+
+      const keyChangeSlide = (e) => {
+        const keyIndex = e.keyCode;
+        if (keyIndex == 37 || keyIndex == 39) {
+          clearInterval(indexInterval);
+          keyIndex == 37 ? active-- : active++;
+          if (active === slideList.length) {
+            active = 0;
+          } else if (active < 0) {
+            active = slideList.length - 1;
+          }
+        }
+        image.src = slideList[active].img;
+        h1.textContent = slideList[active].text;
+        changeDot();
+
+        indexInterval = setInterval(changeSlide, time);
+      };
+
+      window.addEventListener("keydown", keyChangeSlide);
+    </script>
+  </body>
+</html>
