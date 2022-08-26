@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const add = (start = 0) => {
+        let number = start;
+        return () => {
+          number++;
+          document.body.textContent =
+            "The current state of the counter: " + number;
+        };
+      };
+
+      const counter = add();
+
+      document.addEventListener("click", counter);
+    </script>
+  </body>
+</html>
