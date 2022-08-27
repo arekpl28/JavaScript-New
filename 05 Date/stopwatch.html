@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        position: relative;
+        height: 100vh;
+      }
+      button {
+        font-size: 44px;
+        margin: 30px;
+        padding: 5px 20px;
+        cursor: pointer;
+      }
+      div.time {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="main">Start</button>
+    <button class="reset">Reset</button>
+    <div class="time">
+      <p>Time since start:</p>
+      <div>---</div>
+    </div>
+    <script>
+      const btnMain = document.querySelector(".main");
+      const btnReset = document.querySelector(".reset");
+
+      const timeStart = document.querySelector(".time div");
+
+      let timeSinceStart = 0;
+
+      let indexInterval = null;
+
+      let flag = true;
+
+      const timer = () => {
+        if (flag) {
+          indexInterval = setInterval(() => {
+            timeSinceStart++;
+            timeStart.textContent = (timeSinceStart / 100).toFixed(2);
+            // Math.floor(timeSinceStart / 100) +
+            // "." +
+            // (timeSinceStart % 100 < 10
+            //   ? "0" + (timeSinceStart % 100)
+            //   : timeSinceStart % 100);
+          }, 10);
+          flag = false;
+          btnMain.textContent = "Stop";
+        } else if (!flag) {
+          clearInterval(indexInterval);
+          flag = true;
+          btnMain.textContent = "Start";
+        }
+      };
+
+      btnMain.addEventListener("click", timer);
+
+      btnReset.addEventListener("click", () => {
+        timeStart.textContent = "---";
+        timeSinceStart = 0;
+        clearInterval(indexInterval);
+        flag = true;
+      });
+    </script>
+  </body>
+</html>
