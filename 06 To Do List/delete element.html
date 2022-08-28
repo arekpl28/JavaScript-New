@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li data-key="1">element-1 <button data-key="1">x</button></li>
+      <li data-key="2">element-2 <button data-key="2">x</button></li>
+      <li data-key="3">element-3 <button data-key="3">x</button></li>
+      <li data-key="4">element-4 <button data-key="4">x</button></li>
+      <li data-key="5">element-5 <button data-key="5">x</button></li>
+      <li data-key="6">element-6 <button data-key="6">x</button></li>
+      <li data-key="7">element-7 <button data-key="7">x</button></li>
+      <li data-key="8">element-8 <button data-key="8">x</button></li>
+      <li data-key="9">element-9 <button data-key="9">x</button></li>
+      <li data-key="10">element-10 <button data-key="10">x</button></li>
+    </ul>
+    <script>
+      const liButton = [...document.querySelectorAll("button[data-key]")];
+
+      const removeTask = (e) => {
+        // e.target.remove();
+        // console.log(e.target.parentNode);
+        // e.target.parentNode.remove();
+        // e.target.parentNode.style.textDecoration = "line-through";
+        // e.target.remove();
+
+        const index = e.target.dataset.key;
+        console.log(index);
+        document.querySelector(`li[data-key="${index}"]`).remove();
+      };
+
+      liButton.forEach((item) => {
+        item.addEventListener("click", removeTask);
+      });
+    </script>
+  </body>
+</html>
