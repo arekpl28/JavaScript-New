@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" />
+      <button>Add task</button>
+    </form>
+    <h1>Number of tasks: <span>0</span></h1>
+    <ul></ul>
+    <script>
+      let toDoList = [];
+
+      const form = document.querySelector("form");
+      const ul = document.querySelector("ul");
+      const taskNumber = document.querySelector("span");
+      const listItems = document.getElementsByClassName("task");
+      const input = document.querySelector("input");
+
+      const renderList = () => {
+        ul.textContent = "";
+        toDoList.forEach((toDoElement, key) => {
+          toDoElement.dataset.key = key;
+          ul.appendChild(toDoElement);
+        });
+      };
+
+      const removeTask = (e) => {
+        // e.target.parentNode.remove();
+        const index = e.target.parentNode.dataset.key;
+        console.log(index);
+
+        toDoList.splice(index, 1);
+
+        taskNumber.textContent = listItems.length;
+        renderList();
+      };
+
+      const addTask = (e) => {
+        e.preventDefault();
+        const titleTask = input.value;
+        if (titleTask === "") return;
+        const li = document.createElement("li");
+        li.className = "task";
+        li.innerHTML = titleTask + "  <button>delete</button>";
+        toDoList.push(li);
+        renderList();
+        ul.appendChild(li);
+        taskNumber.textContent = listItems.length;
+        input.value = "";
+
+        li.querySelector("button").addEventListener("click", removeTask);
+      };
+
+      form.addEventListener("submit", addTask);
+    </script>
+  </body>
+</html>
