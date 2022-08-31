@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. that = this
+
+      const szarik = {
+        children: ["fafik", "reksio"],
+        showChildren: function () {
+          const that = this;
+          this.children.forEach(function (child, index) {
+            console.log(that.children[index]);
+          });
+        },
+      };
+      // szarik.showChildren();
+
+      // 2. No function
+
+      const szarik2 = {
+        children: ["fafik", "reksio"],
+        showChildren: function () {
+          for (child of this.children) {
+            console.log(child);
+          }
+        },
+      };
+      // szarik2.showChildren();
+
+      // 3. Arrow function
+
+      const szarik3 = {
+        children: ["fafik", "reksio"],
+        showChildren: function () {
+          this.children.forEach((child, index) => {
+            console.log(this.children[index]);
+          });
+        },
+      };
+      // szarik3.showChildren();
+
+      // 4. Bind
+
+      const szarik4 = {
+        children: ["fafik", "reksio"],
+        showChildren: function () {
+          this.children.forEach(
+            function (child, index) {
+              console.log(this.children[index]);
+            }.bind(this)
+          );
+        },
+      };
+
+      szarik4.showChildren();
+    </script>
+  </body>
+</html>
