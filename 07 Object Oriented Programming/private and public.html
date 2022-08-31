@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. Convention
+      class Cat {
+        constructor(color) {
+          this._color = color;
+        }
+
+        // method that gets the content _color
+        getColor() {
+          return this._color;
+        }
+
+        setColor(value) {
+          if (typeof value === "string") {
+            return (this._color = value);
+          } else {
+            console.log("Invalid value");
+          }
+        }
+      }
+
+      const kotek = new Cat("czarny");
+
+      // 2. Closure
+
+      class Dog {
+        constructor(name, color) {
+          this.name = name;
+          let _color = color;
+
+          this.getColor = () => {
+            return _color;
+          };
+
+          this.setColor = (color) => {
+            return (_color = color);
+          };
+        }
+      }
+
+      const fafik = new Dog("Fafik", "brown");
+
+      class Car {
+        constructor(name, counter = 0, year = 2000) {
+          this.name = name;
+          let _counter = counter;
+          let _year = year;
+          let _changeNumber = 0;
+
+          this.getYear = function () {
+            return _year;
+          };
+
+          this.setCounter = (value) => {
+            _changeNumber++;
+            return (_counter = value);
+          };
+
+          this.getCouter = () => {
+            if (_changeNumber)
+              alert(`Watch out, counter changed ${_changeNumber}`);
+            return _counter;
+          };
+
+          this.showCarAge = (year) => {
+            return year - _year;
+          };
+        }
+      }
+
+      const polonez = new Car("Caro", 5000, 1999);
+    </script>
+  </body>
+</html>
