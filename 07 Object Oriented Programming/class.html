@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Family2 {
+        constructor(name) {
+          this.name = name;
+          // this.addMember = function () {};
+        }
+        addMember() {}
+      }
+
+      const nowakowie = new Family2("nowakowie");
+
+      // const Family2 = function (name) {
+      //   this.name = name;
+      // };
+      // Family2.prototype.addMember = function () {};
+      // const kowalscy = new Family2("kowalscy");
+
+      class Family {
+        constructor(members, ...names) {
+          this.members = members;
+          this.names = names;
+        }
+        addMember(newMember) {
+          this.names.push(newMember);
+          this.members++;
+          console.log(`New member ${newMember}`);
+        }
+
+        static makeFamily(...members) {
+          return members;
+        }
+      }
+
+      const kowalscy = new Family(3, "Jan", "Ewa", "Ania");
+
+      kowalscy.addMember("Tosia");
+      Family.makeFamily("Jaa");
+    </script>
+  </body>
+</html>
