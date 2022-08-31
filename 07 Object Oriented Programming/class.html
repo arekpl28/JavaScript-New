@@ -32,7 +32,7 @@
         addMember(newMember) {
           this.names.push(newMember);
           this.members++;
-          console.log(`New member ${newMember}`);
+          // console.log(`New member ${newMember}`);
         }
 
         static makeFamily(...members) {
@@ -44,6 +44,45 @@
 
       kowalscy.addMember("Tosia");
       Family.makeFamily("Jaa");
+
+      /////////////////////////////////
+
+      class Animal {
+        constructor(age, name) {
+          this.age = age;
+          this.name = name;
+        }
+        breathe() {
+          console.log("Animal Breathe");
+        }
+      }
+
+      const zwierze = new Animal(2, "Imie");
+
+      class Mammel extends Animal {
+        constructor(age, name, hairs) {
+          super(age, name);
+          this.hairs = hairs;
+        }
+        drinkMilk() {
+          console.log("Drink Milk");
+        }
+      }
+
+      const ssak = new Mammel(3, "max", "black");
+      // ssak.breathe();
+
+      class Human extends Mammel {
+        constructor(age, name, hairs, language) {
+          super(age, name, hairs);
+          this.language = language;
+        }
+        speak() {
+          console.log("Human speaks");
+        }
+      }
+
+      const mirek = new Human(23, "Mirek", "black", "polish");
     </script>
   </body>
 </html>
