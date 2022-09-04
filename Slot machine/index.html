@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slot machine</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Slot machine</h1>
+      <section class="game">
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+      </section>
+      <section class="play">
+        <input id="bid" type="number" placeholder="Bet" />
+        <button id="start">Start</button>
+      </section>
+
+      <section class="panel">
+        Your balance before the next game: <span class="wallet"></span>
+      </section>
+
+      <section class="score">
+        <span class="result"></span> <span class="number">0</span> games behind
+        you, including <span class="win">0</span> won and
+        <span class="lost">0</span> lost.
+      </section>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>
