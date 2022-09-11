@@ -1,12 +1,6 @@
 class Statistics {
   constructor() {
-    this.gameResults = [
-      { win: true, bind: 2 },
-      { win: false, bind: -4 },
-      { win: true, bind: 2 },
-      { win: false, bind: -4 },
-      { win: true, bind: 8 },
-    ];
+    this.gameResults = [];
   }
 
   addGameToStatistics(win, bid) {
@@ -25,5 +19,3 @@ class Statistics {
     return [games, wins, losses];
   }
 }
-
-// const stats = new Statistics();
